@@ -118,3 +118,25 @@ echo "Calculating For a Month"
 	done
 	totalSalary=$(($totalEmpHrs*$EMP_RATE_PER_HR))
 	echo $totslSalary
+#--------------------NewBranch--------------------------------------
+
+function getWorkHrs() {
+   case $1 in
+      $IS_FULL_TIME)
+         empHrs=8
+         ;;
+      $IS_PART_TIME)
+         empHrs=4
+         ;;
+      *)
+         empHrs=0
+         ;;
+   esac
+   echo $empHrs;
+}
+
+function getEmpWage() {
+   echo $(($1*$EMP_RATE_PER_HR));
+}
+
+
