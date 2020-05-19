@@ -64,3 +64,27 @@ echo "Using Switch Case to calculate "
 	salary=$(($empWorkHrs * $empRatePerHr))
 	echo "Using Case Statement " $salary
 
+#----------------NewBranch---------------------------------
+
+	numWorkingDays=20;
+	TotalSalary=0
+
+echo "Calculating For a Month"
+
+	for (( day =1; day<=$numWorkingDays; day++ ))
+	do
+		case $work_hrs_checker in
+				$isFullTime)
+							empWorkHrs=8
+							;;
+				$isPartTime)
+							empWorkHrs=4;
+							;;
+				*)
+							empWorkHrs=0;
+							;;
+		esac
+		salary=$(($empWorkHrs*$empRatePerHr))
+		TotalSalary=$(($TotalSalary+$salary))
+	done
+	echo "Salay of month: " $TotalSalary
