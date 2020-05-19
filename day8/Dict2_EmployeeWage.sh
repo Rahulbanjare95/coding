@@ -11,6 +11,7 @@ totalWorkingDays=0;
 
 declare -A dailyWages
 function getWorkHrs() {
+
    case $1 in
       $IS_FULL_TIME)
          empHrs=8
@@ -35,7 +36,6 @@ do
    empCheck=$((RANDOM%3));
    empHrs="$(getWorkHrs $empCheck)"
    totalEmpHrs=$(($totalEmpHrs+$empHrs))
-
 	dailyWages["Day "$totalWorkingDays]="$( getEmpWage $empHrs )"
 done
 
