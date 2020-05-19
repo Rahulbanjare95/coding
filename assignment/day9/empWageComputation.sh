@@ -186,7 +186,20 @@ totalSalary=$(($totalEmpHrs*$EMP_RATE_PER_HR))
 
 echo ${dailyWages[@]}
 
+#-------------------------------New Branch-----------------------
+while [[ $totalEmpHrs -lt $MAX_HRS_IN_MONTH && $totalWorkingDays -lt $NUM_WORKING_DAYS ]]
+do
+   ((totalWorkingDays++))
+   empCheck=$((RANDOM%3));
+   empHrs="$(getWorkHrs $empCheck)"
+   totalEmpHrs=$(($totalEmpHrs+$empHrs))
+   dailyWages["Day "$totalWorkingDays]="$( getEmpWage $empHrs )"
+done
 
+totalSalary=$(($totalEmpHrs*$EMP_RATE_PER_HR))
+
+echo ${!dailyWages[@]}
+echo ${dailyWages[@]}
 
 
 
