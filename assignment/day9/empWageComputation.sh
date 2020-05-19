@@ -1,5 +1,6 @@
 echo "Welcome to Employee Wage Computation Program"
 
+#-------------------New Branch-----------------
 echo "Attendence check"
 
 	Present=1
@@ -24,6 +25,7 @@ echo "Calculating Daily Wage"
 	fi
 	echo "Daily Wage = "$dailyWage
 
+#--------------------New Branch---------------------
 echo "Adding Part Time Work Hours"
 
 	isPartTime=1
@@ -44,3 +46,21 @@ echo "Adding Part Time Work Hours"
 	fi
 	salary=$(( $empWorkHrs * $empRatePerHr ))
 	echo "Salary= " $salary
+
+#----------------------New Branch-----------------------
+echo "Using Switch Case to calculate "
+
+
+	case $work_hrs_checker in
+			$isFullTime)
+						empWorkHrs=8
+						;;
+			$isPartTime)
+						empWorkHrs=4
+						;;
+			*)
+						empWorkHrs=0
+	esac
+	salary=$(($empWorkHrs * $empRatePerHr))
+	echo "Using Case Statement " $salary
+
